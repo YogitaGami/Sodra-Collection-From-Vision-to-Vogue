@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { updateDays } from "@/redux/updateCart/updateCartSlice";
+import { addItem } from "@/redux/updateCart/updateCartSlice";
 
-const CartItems = ({ item, onUpdateDays}) => {
+const CartItems = ({ item}) => {
   // Ensure priceMap exists before accessing its keys
   const dispatch = useDispatch();
 
@@ -23,11 +23,18 @@ const CartItems = ({ item, onUpdateDays}) => {
 
 
   const handleDaysChange = (event) => {
-    const newDays = event.target.value;
-    setSelectedDays(newDays);
-    setPrice(item.priceMap?.[newDays] || 0);
-    dispatch(updateDays({ id: item.id, days: newDays }));
-  };
+  const newDays = event.target.value;
+  setSelectedDays(newDays);
+  setPrice(item.priceMap?.[newDays] || 0);
+
+  dispatch(
+    addItem({
+      ...item,
+      selectedDays: newDays,
+      price: item.priceMap?.[newDays] || 0,
+    })
+  );
+};
 
   console.log("Current priceMap:", item.priceMap);
 

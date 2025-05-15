@@ -1,5 +1,8 @@
 import { toggleFavoriteItem } from "@/redux/updateFavorite/updateFavoriteSlice";
 import { useDispatch } from 'react-redux'
+import { toast } from "react-toastify";
+import Image from "next/image";
+
 
 const ToggleItemToFavorite = ({ item, selectedDays,selectedDeliveryDate}) => {
     const dispatch = useDispatch();
@@ -7,6 +10,7 @@ const ToggleItemToFavorite = ({ item, selectedDays,selectedDeliveryDate}) => {
     const handleToggleFavorite = () => {
       const Items = {
         id: item._id,
+        imageId: item.imageId?.[0],
         name: item.name,
         desc: item.desc,
         price: typeof item.price === "object"
@@ -19,12 +23,21 @@ const ToggleItemToFavorite = ({ item, selectedDays,selectedDeliveryDate}) => {
         DeliveryDate: selectedDeliveryDate
       };
       dispatch(toggleFavoriteItem(Items));
-      
+      toast.info('Item added to cart!', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light"
+      }) 
     };
   
     return (
       <button onClick={handleToggleFavorite}>
-        <img className="size-4" src="window.svg" alt="" />
+        <Image src="/heart.svg" alt="Favourite Icon" width={32} height={32}></Image>
       </button>
     );
   };

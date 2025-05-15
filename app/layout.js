@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import SessionWrapper from "@/components/SessionWrapper";
 // import { CartItemProvider } from "@/context/Context";
 import StoreProvider from "@/redux/StoreProvider";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -19,13 +21,23 @@ const geistMono = localFont({
 
 export const metadata = {
   title: "Sodra Collection",
-  description: "Sodra Collection offers a seamless experience to buy or rent stylish fashion pieces, combining tradition and modern trends.",
-  keywords: ["Sodra Collection", "fashion", "buy dresses", "rent outfits", "ethnic wear", "modern fashion", "online clothing store"],
+  description:
+    "Sodra Collection offers a seamless experience to buy or rent stylish fashion pieces, combining tradition and modern trends.",
+  keywords: [
+    "Sodra Collection",
+    "fashion",
+    "buy dresses",
+    "rent outfits",
+    "ethnic wear",
+    "modern fashion",
+    "online clothing store",
+  ],
   authors: [{ name: "Sodra Collection" }],
   creator: "Sodra Collection",
   openGraph: {
     title: "Sodra Collection",
-    description: "Buy or rent beautiful fashion pieces for every occasion. Discover elegance with Sodra Collection.",
+    description:
+      "Buy or rent beautiful fashion pieces for every occasion. Discover elegance with Sodra Collection.",
     url: "https://yourdomain.com",
     siteName: "Sodra Collection",
     type: "website",
@@ -35,7 +47,6 @@ export const metadata = {
     follow: true,
   },
 };
-
 
 export default function RootLayout({ children }) {
   return (
@@ -57,6 +68,18 @@ export default function RootLayout({ children }) {
               {children}
             </div>
             <Footer />
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
           </StoreProvider>
         </SessionWrapper>
       </body>

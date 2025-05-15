@@ -70,7 +70,7 @@ const Navbar = () => {
           <Link href={"/Cart"} target="_blank" rel="noopener noreferrer">Cart</Link>
         </li>
         <li className="text-[#0680d0] text-lg">
-          <Link href={"#"}>About</Link>
+          <Link href={"/About"}>About</Link>
         </li>
       </ul>
     </nav>

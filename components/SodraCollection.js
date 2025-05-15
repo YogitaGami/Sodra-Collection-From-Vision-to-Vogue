@@ -62,7 +62,7 @@ const SodraCollection = () => {
 
   return (
     <section id="home">
-      <div className="container mx-auto">
+      <div className="container mx-auto mt-4">
         <div className="trending_items">
           {items && items.length > 0 ? (
             <Swiper
