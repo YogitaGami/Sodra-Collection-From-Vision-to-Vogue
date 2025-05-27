@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "@/redux/updateCart/updateCartSlice";
 import axios from "axios";
@@ -5,6 +6,7 @@ import { toast } from "react-toastify";
 
 const AddItemToCart = ({ item, selectedDays, selectedDeliveryDate }) => {
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
   const checkAvailability = async () => {
     try {
@@ -15,7 +17,7 @@ const AddItemToCart = ({ item, selectedDays, selectedDeliveryDate }) => {
 
       if (item.collectionType !== "ArtPieces") {
         if (!selectedDeliveryDate || !selectedDays) {
-          alert("Please select rental days and delivery date!");
+          toast.info("Please select rental days and delivery date!");
           return false;
         }
       }
@@ -33,16 +35,19 @@ const AddItemToCart = ({ item, selectedDays, selectedDeliveryDate }) => {
 
       return res.data.available;
     } catch (error) {
+      toast.info("Error checking item availability. Please try again")
       console.error("Error checking availability:", error);
       return false;
     }
   };
 
   const handleAddCart = async () => {
+    setLoading(true);
     const isAvailable = await checkAvailability();
 
     if (!isAvailable) {
-      alert("This item is not available for the selected dates or is sold.");
+      setLoading(false);
+      toast.info("This item is not available for the selected dates or is sold.");
       return;
     }
 
@@ -69,24 +74,21 @@ const AddItemToCart = ({ item, selectedDays, selectedDeliveryDate }) => {
 
     dispatch(addItem(baseItem));
     console.log("Added to cart:", baseItem);
-    toast.info("Item added to cart!", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    toast.info("Item added to cart!");
+    setLoading(false);
   };
 
   return (
     <button
       onClick={handleAddCart}
-      className="w-fit bg-[#0680d0] text-white px-14 py-2 rounded-md shadow-md hover:bg-[#44b1f9] transition-all duration-300"
+      disabled={loading}
+      className={`w-fit px-14 py-2 rounded-md shadow-md transition-all duration-300 text-white ${
+        loading
+          ? "bg-[#90ccf4] cursor-not-allowed"
+          : "bg-[#0680d0] hover:bg-[#44b1f9]"
+      }`}
     >
-      Add to Cart
+      {loading ? "Adding........" : "Add to Cart"}
     </button>
   );
 };

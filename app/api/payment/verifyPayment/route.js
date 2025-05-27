@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { validatePaymentVerification } from "razorpay/dist/utils/razorpay-utils";
-import Order from "@/models/order"
+import Order from "@/models/order";
 import Razorpay from "razorpay";
 import connectDB from "@/db/connectDb";
 import Admin from "@/models/admin";
@@ -34,22 +34,21 @@ export const POST = async (req) => {
   if (verified) {
     const updatedOrder = await Order.findOneAndUpdate(
       { orderId: body.razorpay_order_id },
-      { status: "paid",razorpay_payment_id: body.razorpay_payment_id },
+      { status: "paid", razorpay_payment_id: body.razorpay_payment_id },
       { new: true }
     );
 
-    // Loop through each dress in the order
     for (const item of updatedOrder.dressDetails) {
-      const collectionType = item.collectionType;
-    
+      const collectionType = item.CollectionType;
+
       if (collectionType === "Dresses" || collectionType === "Accessories") {
         const startDate = new Date(item.DeliveryDate);
         const rentalDays = parseInt(item.days);
         const endDate = new Date(startDate);
         endDate.setDate(endDate.getDate() + rentalDays);
-    
+
         const model = collectionType === "Dresses" ? Dress : Accessory;
-    
+
         await model.findByIdAndUpdate(item.id, {
           $push: {
             bookings: {
@@ -60,19 +59,22 @@ export const POST = async (req) => {
           },
         });
       }
-    
+
       if (collectionType === "ArtPieces") {
         await ArtPiece.findByIdAndUpdate(item.id, { isAvailable: false });
       }
     }
-    
-  
+
     return new Response(null, {
       status: 302,
       headers: {
         Location: `${process.env.NEXT_PUBLIC_URL}/MyOrders?paymentdone=true`,
-      },})
+      },
+    });
   } else {
-    return NextResponse.json({ success: false, message: "Payment Validation Failed" });
+    return NextResponse.json({
+      success: false,
+      message: "Payment Validation Failed",
+    });
   }
 };

@@ -6,25 +6,31 @@ export const updateCartSlice = createSlice({
   initialState: [],
   reducers: {
     addItem: (state, action) => {
+      const newItem = {
+        ...action.payload,
+        quantity: 1,
+        checked: true,
+      };
       const existingItemIndex = state.findIndex(
-        (item) => item.id === action.payload.id
+        (item) =>
+          item.id === newItem.id &&
+          item.days === newItem.days &&
+          item.deliveryDate === newItem.deliveryDate
       );
 
       if (existingItemIndex !== -1) {
-        const existingItem = state[existingItemIndex];
         // Ensure we're not keeping any stale references to removed items
         state[existingItemIndex] = {
-          ...existingItem,
-          ...action.payload,
+          ...state[existingItemIndex],
+          ...newItem,
           quantity: 1,
-          checked: state[existingItemIndex].checked ?? true,
         }; // Reset quantity to 1
       } else {
-        state.push({ ...action.payload, quantity: 1, checked: true }); // Add new item properly
+        state.push(newItem); // Add new item properly
       }
     },
 
-    removeItem: (state, action) => {
+    removeItemFromCart: (state, action) => {
       const idsToRemove = Array.isArray(action.payload)
         ? action.payload
         : [action.payload];
@@ -44,7 +50,6 @@ export const updateCartSlice = createSlice({
       });
     },
 
-
     clearCart: () => {
       return []; // Reset cart to empty
     },
@@ -52,18 +57,32 @@ export const updateCartSlice = createSlice({
 });
 
 // Export actions
-export const { addItem, removeItem, toggleItemChecked,toggleAllItemsChecked, clearCart } =
-  updateCartSlice.actions;
+export const {
+  addItem,
+  removeItemFromCart,
+  toggleItemChecked,
+  toggleAllItemsChecked,
+  clearCart,
+} = updateCartSlice.actions;
 
 // Export reducer
 export default updateCartSlice.reducer;
 
 // ✅ Selector to compute price details
 export const selectPriceDetails = (state) => {
-  const cartItems = state.updateCart;;
-  const selectedItemQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
-  const selectedItemPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  const selectedItemDeposit = cartItems.reduce((acc, item) => acc + (item.deposit || 0) * item.quantity, 0);
+  const cartItems = state.updateCart.filter((item) => item.checked);
+  const selectedItemQuantity = cartItems.reduce(
+    (acc, item) => acc + item.quantity,
+    0
+  );
+  const selectedItemPrice = cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+  const selectedItemDeposit = cartItems.reduce(
+    (acc, item) => acc + (item.deposit || 0) * item.quantity,
+    0
+  );
   const totalAmount = selectedItemPrice + selectedItemDeposit;
 
   return {

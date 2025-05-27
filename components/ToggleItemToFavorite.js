@@ -4,9 +4,9 @@ import { toast } from "react-toastify";
 import Image from "next/image";
 
 
-const ToggleItemToFavorite = ({ item, selectedDays,selectedDeliveryDate}) => {
+const ToggleItemToFavorite = ({ item, selectedDays}) => {
     const dispatch = useDispatch();
-  
+
     const handleToggleFavorite = () => {
       const Items = {
         id: item._id,
@@ -16,24 +16,13 @@ const ToggleItemToFavorite = ({ item, selectedDays,selectedDeliveryDate}) => {
         price: typeof item.price === "object"
         ? item.price[selectedDays] ?? 0
         : item.price || 0,
-        priceMap: {...item.price},
-        size: item.size,
-        days: selectedDays,
         deposit: item.deposit || 0,
-        DeliveryDate: selectedDeliveryDate
+        collectionType: item.collectionType,
+        isAvailable: item.isAvailable
       };
       dispatch(toggleFavoriteItem(Items));
-      toast.info('Item added to cart!', {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light"
-      }) 
-    };
+      toast.info('Item added to favourite!')
+    }
   
     return (
       <button onClick={handleToggleFavorite}>

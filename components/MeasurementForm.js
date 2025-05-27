@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useSession, signIn, signOut } from "next-auth/react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const initialMeasurement = {
   length: "",
@@ -21,18 +22,12 @@ const MeasurementForm = ({ dressId }) => {
 
   const [measurement, setMeasurement] = useState(initialMeasurement);
   const [changes, setChanges] = useState("");
-  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   console.log("dressId", dressId);
   console.log("Session user ID:", session?.user?.id);
   console.log("Username:", session?.user?.name);
   console.log("Role:", session?.user?.role);
 
-  useEffect(() => {
-    if (message) {
-      const timeout = setTimeout(() => setMessage(""), 5000);
-      return () => clearTimeout(timeout);
-    }
-  }, [message]);
 
   const handleChange = (e) => {
     setMeasurement({ ...measurement, [e.target.name]: Number(e.target.value) });
@@ -50,6 +45,8 @@ const MeasurementForm = ({ dressId }) => {
     //         router.push("/Login");
     //       }
     //     }, [session, pathname, router]);
+
+    setLoading(true);
     e.preventDefault();
 
     if (!session) {
@@ -63,7 +60,7 @@ const MeasurementForm = ({ dressId }) => {
 
     const allFilled = Object.values(measurement).every((val) => val > 0);
     if (!allFilled) {
-      setMessage("Please enter all measurements correctly.");
+      toast.info("Please enter all measurements correctly.");
       return;
     }
 
@@ -77,13 +74,14 @@ const MeasurementForm = ({ dressId }) => {
         withCredentials: true,
       });
       if (res.status === 201) {
-        setMessage("Submitted successfully!");
+        toast.info("Submitted successfully! Further conversation will take place via Gmail.");
         setMeasurement(initialMeasurement);
         setChanges("");
       }
     } catch {
-      setMessage("Error submitting form.");
+      toast.info("Error submitting form.");
     }
+    setLoading(false);
   };
 
   return (
@@ -127,12 +125,16 @@ const MeasurementForm = ({ dressId }) => {
 
       <button
         type="submit"
-        className="w-fit bg-[#0680d0] text-white px-14 py-2 rounded-md shadow-md hover:bg-[#44b1f9] transition-all duration-300"
-      >
-        Submit
+        disabled={loading}
+      className={`w-fit px-14 py-2 rounded-md shadow-md transition-all duration-300 text-white ${
+        loading
+          ? "bg-[#90ccf4] cursor-not-allowed"
+          : "bg-[#0680d0] hover:bg-[#44b1f9]"
+      }`}
+    >
+      {loading ? "Submitting..." : "Submit"}
       </button>
 
-      {message && <p className="mt-4 text-green-600">{message}</p>}
     </form>
   );
 };

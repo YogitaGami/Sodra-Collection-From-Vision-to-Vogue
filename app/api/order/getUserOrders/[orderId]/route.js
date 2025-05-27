@@ -11,7 +11,7 @@ export async function GET(req, { params }) {
   }
   
   try {
-    const order = await Order.findOne({orderId});
+    const order = await Order.findOne({orderId}).populate("address");
     console.log(JSON.stringify(order, null, 2));
     if (!order) {
       return NextResponse.json({ message: "Order not found" }, { status: 404 });

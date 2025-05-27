@@ -1,10 +1,8 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
-import counterReducer from '../redux/counter/counterSlice';
 import updateCartReducer from './updateCart/updateCartSlice';
 import updateFavoriteReducer from './updateFavorite/updateFavoriteSlice';
-import priceDetailsReducer from './priceDetails/priceDetailsSlice'
-import ordersReducer from './orders/ordersSlice'
+
 
 // ✅ Check if we are in the browser before importing `storage`
 const isClient = typeof window !== 'undefined';
@@ -14,16 +12,13 @@ const storage = isClient ? require('redux-persist/lib/storage').default : null;
 const persistConfig = {
   key: 'root',
   storage, // ✅ Use storage only on client-side
-  whitelist: ['updateCart', 'updateFavorite', 'priceDetailsReducer', 'ordersReducer'], // Specify reducers to persist
+  whitelist: ['updateCart', 'updateFavorite'], // Specify reducers to persist
 };
 
 // Combine all reducers
 const rootReducer = combineReducers({
-  counter: counterReducer,
   updateCart: updateCartReducer,
   updateFavorite: updateFavoriteReducer,
-  priceDetails: priceDetailsReducer,
-  orders: ordersReducer,
 });
 
 // Conditionally wrap reducer with persistReducer (only in browser)

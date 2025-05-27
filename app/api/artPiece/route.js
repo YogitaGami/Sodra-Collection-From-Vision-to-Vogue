@@ -11,3 +11,10 @@ export async function GET() {
     return NextResponse.json({ message: "Error fetching artPiece" }, { status: 500 });
   }
 }
+
+export async function POST(req) {
+  await connectDB();
+  const body = await req.json();
+  const artPiece = await ArtPiece.create(body);
+  return NextResponse.json(artPiece);
+}
