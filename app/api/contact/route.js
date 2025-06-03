@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server';
 import resend from '@/lib/resend'; // Your configured Resend instance
 import dbConnect from "@/db/connectDb";
-import ContactMessage from '@/models/ContactMessage';
+import ContactMessage from '@/models/contactMessages';
 
 export async function POST(request) {
   try {

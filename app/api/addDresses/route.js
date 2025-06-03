@@ -1,10 +1,10 @@
 // pages/api/addDress.js
 
-import dbConnect from "@/lib/dbConnect";
+import connectDB from "@/db/connectDb";
 import Dress from "@/models/dresses";
 
 export default async function handler(req, res) {
-  await dbConnect();
+  await connectDB();
 
   if (req.method === "POST") {
     try {
