@@ -163,7 +163,7 @@ const DressContent = () => {
         </div>
 
         <div className="mt-6">
-          <h4 className="font-semibold mb-2">Stylist's Notes</h4>
+          <h4 className="font-semibold mb-2">Stylist&apos;s Notes</h4>
           <p>{dress.stylistNote}</p>
         </div>
 

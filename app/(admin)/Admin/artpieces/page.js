@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import PageLoader from "@/components/PageLoader";
 import { toast } from "react-toastify";
+import AddArtpieceModal from "./AddArtpieceModel";
 
 export default function ArtpiecesAdmin() {
   const [artpieces, setArtpieces] = useState([]);

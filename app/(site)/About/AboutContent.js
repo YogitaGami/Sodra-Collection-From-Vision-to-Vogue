@@ -31,52 +31,52 @@ const AboutContent = () => {
   };
 
   return (
-    <div class="min-h-screen text-gray-800 pt-28">
-      <section class="text-center py-6">
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0680d0]">
+    <div className="min-h-screen text-gray-800 pt-28">
+      <section className="text-center py-6">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0680d0]">
           Sodra Collection
         </h1>
-        <p class="text-lg text-[#44b1f9] mt-2">From Vision to Vogue</p>
+        <p className="text-lg text-[#44b1f9] mt-2">From Vision to Vogue</p>
       </section>
 
-      <section class="flex justify-center py-8">
-        <div class="w-full max-w-4xl px-4">
-          <div class="relative pb-[56.25%] h-0 rounded-xl shadow-lg overflow-hidden">
+      <section className="flex justify-center py-8">
+        <div className="w-full max-w-4xl px-4">
+          <div className="relative pb-[56.25%] h-0 rounded-xl shadow-lg overflow-hidden">
             <iframe
-              class="absolute top-0 left-0 w-full h-full"
+              className="absolute top-0 left-0 w-full h-full"
               src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
         </div>
       </section>
 
-      <section class="max-w-3xl mx-auto px-6 py-12 text-center">
+      <section className="max-w-3xl mx-auto px-6 py-12 text-center">
         <img
           src="/Ravina.png"
           alt="Ravina Gami"
-          class="mx-auto w-40 h-40 rounded-full object-cover border-4 border-[#0680d0] shadow-md mb-4"
+          className="mx-auto w-40 h-40 rounded-full object-cover border-4 border-[#0680d0] shadow-md mb-4"
         />
-        <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-[#0680d0]">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0680d0]">
           Ravina Gami
         </h2>
-        <p class="text-md text-gray-600 mt-1">
+        <p className="text-md text-gray-600 mt-1">
           Fashion Designer, Ujjain (M.P.)
         </p>
-        <p class="mt-6 text-gray-700 leading-relaxed">
+        <p className="mt-6 text-gray-700 leading-relaxed">
           Ever since I was a little girl, I found joy in creating. I still
           remember designing my very first dress — not for a person, but for my
-          doll. At that time, I didn’t even have a sewing machine. I would draft
+          doll. At that time, I didn&apos;t even have a sewing machine. I would draft
           little outfits by imagining the cuts in my mind, then carefully cut
           the fabric and stitch everything together by hand using just a needle
           and thread. That early spark of creativity shaped my dream of becoming
           a fashion designer.
         </p>
 
-        <p class="mt-4 text-gray-700 leading-relaxed">
+        <p className="mt-4 text-gray-700 leading-relaxed">
           Over the years, that passion only grew stronger. Eventually, I decided
           to follow my heart and formally step into the world of fashion by
           pursuing a diploma in Fashion Designing. That step was the beginning
@@ -85,33 +85,33 @@ const AboutContent = () => {
           to.
         </p>
 
-        <p class="mt-4 text-gray-700 leading-relaxed">
-          Today, I’ve turned that childhood dream into reality. I’ve created my
+        <p className="mt-4 text-gray-700 leading-relaxed">
+          Today, I&apos;ve turned that childhood dream into reality. I&apos;ve created my
           own brand where every dress, accessory, and art piece is designed with
           intention, emotion, and creativity. From made-to-order clothing to
           handcrafted accessories and artwork, each piece is a part of my story
           — and now it becomes a part of yours too.
         </p>
 
-        <p class="mt-4 text-gray-700 leading-relaxed">
+        <p className="mt-4 text-gray-700 leading-relaxed">
           Today, I continue to grow — not just as a designer, but as a creative
           thinker and mentor. I constantly challenge myself to explore new
           ideas, refine my techniques, and turn inspiration into designs that
           speak to people. Every piece I create carries a story, a feeling, and
-          a purpose. That’s what led me to shape my own identity as a brand —
+          a purpose. That&apos;s what led me to shape my own identity as a brand —
           where imagination turns into design, and design turns into confidence.
-          That’s the heart behind my tagline:{" "}
-          <strong class="text-[#0680d0]">“From Vision to Vogue.”</strong> It’s
+          That&apos;s the heart behind my tagline:{" "}
+          <strong className="text-[#0680d0]">“From Vision to Vogue.”</strong> It&apos;s
           about transforming a simple idea into a wearable piece of art that
-          empowers and connects. This journey isn’t just mine — it belongs to
-          every person who wears what I’ve created.
+          empowers and connects. This journey isn&apos;t just mine — it belongs to
+          every person who wears what I&apos;ve created.
         </p>
       </section>
 
-      <section class="max-w-3xl mx-auto px-6 space-y-10">
+      <section className="max-w-3xl mx-auto px-6 space-y-10">
         <div>
-          <h3 class="text-2xl font-semibold text-[#0680d0] mb-2">Education</h3>
-          <ul class="list-disc list-inside text-gray-700 space-y-1">
+          <h3 className="text-2xl font-semibold text-[#0680d0] mb-2">Education</h3>
+          <ul className="list-disc list-inside text-gray-700 space-y-1">
             <li>
               Fashion Designing Diploma - Bhartiya Institute of Fashion
               Technology
@@ -122,8 +122,8 @@ const AboutContent = () => {
         </div>
 
         <div>
-          <h3 class="text-2xl font-semibold text-[#0680d0] mb-2">Skills</h3>
-          <ul class="list-disc list-inside text-gray-700 space-y-1">
+          <h3 className="text-2xl font-semibold text-[#0680d0] mb-2">Skills</h3>
+          <ul className="list-disc list-inside text-gray-700 space-y-1">
             <li>Stitching & Pattern Making</li>
             <li>Fabric Painting & Hand Embroidery</li>
             <li>Adobe Illustrator, Photoshop, CorelDRAW, Inkscape</li>
@@ -131,21 +131,21 @@ const AboutContent = () => {
         </div>
 
         <div>
-          <h3 class="text-2xl font-semibold text-[#0680d0] mb-2">Languages</h3>
-          <p class="text-gray-700">Hindi, English</p>
+          <h3 className="text-2xl font-semibold text-[#0680d0] mb-2">Languages</h3>
+          <p className="text-gray-700">Hindi, English</p>
         </div>
       </section>
 
-      <section class="py-16 px-6">
-        <div class="max-w-3xl mx-auto text-center">
-          <h2 class="text-3xl font-bold text-[#0680d0] mb-4">Let's Connect</h2>
-          <p class="text-gray-700 mb-10">
+      <section className="py-16 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-[#0680d0] mb-4">Let's Connect</h2>
+          <p className="text-gray-700 mb-10">
             Feel free to reach out for custom designs, collaborations, or just
             to say hello.
           </p>
 
-          <div class="mb-8 space-y-2">
-            <p class="text-gray-800 font-medium flex gap-2 justify-center">
+          <div className="mb-8 space-y-2">
+            <p className="text-gray-800 font-medium flex gap-2 justify-center">
               <Image
                 src="/mail (1).png"
                 alt="Email logo"
@@ -155,12 +155,12 @@ const AboutContent = () => {
               <span>Email:</span>
               <a
                 href="mailto:ravinagami1998@gmail.com"
-                class="text-[#0680d0] hover:text-[#44b1f9]"
+                className="text-[#0680d0] hover:text-[#44b1f9]"
               >
                 ravinagami1998@gmail.com
               </a>
             </p>
-            <p class="text-gray-800 font-medium flex gap-2 justify-center">
+            <p className="text-gray-800 font-medium flex gap-2 justify-center">
               <Image
                 src="/instagram (1).svg"
                 alt="Email logo"
@@ -171,7 +171,7 @@ const AboutContent = () => {
               <a
                 href="https://www.instagram.com/world_of_arts321?utm_source=qr&igsh=NzZ1NXN2NWx3Z3ox"
                 target="_blank"
-                class="text-[#0680d0] hover:text-[#44b1f9]"
+                className="text-[#0680d0] hover:text-[#44b1f9]"
               >
                 @Designer Gami
               </a>
