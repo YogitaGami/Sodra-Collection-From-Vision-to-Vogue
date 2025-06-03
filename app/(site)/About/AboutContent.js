@@ -138,7 +138,7 @@ const AboutContent = () => {
 
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-[#0680d0] mb-4">Let's Connect</h2>
+          <h2 className="text-3xl font-bold text-[#0680d0] mb-4">Let&apos;s Connect</h2>
           <p className="text-gray-700 mb-10">
             Feel free to reach out for custom designs, collaborations, or just
             to say hello.
