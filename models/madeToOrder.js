@@ -13,6 +13,7 @@ const madeToOrderSchema = new Schema({
   size: { type: Map, of: Number },
   code: { type: String },
   collectionType: { type: String },
+  position: { Type: Number },
 }, { timestamps: true });
 
 export default mongoose.models.MadeToOrder || model("MadeToOrder", madeToOrderSchema);

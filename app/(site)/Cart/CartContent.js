@@ -1,4 +1,4 @@
-"use client"; // Make this a Client Component
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -21,14 +21,7 @@ const CartContent = () => {
   const favItems = useSelector((state) => state.updateFavorite);
   const priceDetails = useSelector(selectPriceDetails);
   const dispatch = useDispatch();
-  // const [cart, setCart] = useState(cartItems);
   const [loading, setLoading] = useState(true);
-
-  // Sync price details whenever cart changes
-  // useEffect(() => {
-  //   dispatch(updatePriceDetails(priceDetails));
-  //   console.log("priceDetailsp", priceDetails);
-  // }, [cartItems, dispatch]);
 
   useEffect(() => {
     console.log("Updated Favorite State:", favItems);
@@ -39,39 +32,11 @@ const CartContent = () => {
   }, [cartItems]);
 
   useEffect(() => {
-    // simulate loading
     const timer = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(timer);
   }, []);
 
   if (loading) return <PageLoader />;
-
-  // const [AllSelectedCartItems, setAllSelectedCartItems] = useState(
-  //   cartItems.map((item) => ({ ...item, checked: true }))
-  // );
-
-  // const updateRentalDays = (itemId, newDays) => {
-  //   // Update local cart state
-  //   setCart((prevCart) =>
-  //     prevCart.map((item) =>
-  //       item.id === itemId ? { ...item, selectedDays: newDays } : item
-  //     )
-  //   );
-  //   // Update Redux state
-  //   dispatch(
-  //     addItem({
-  //       ...cart.find((item) => item.id === itemId),
-  //       selectedDays: newDays,
-  //     })
-  //   );
-  // };
-
-  // // Sync Redux cart updates with local state
-  // useEffect(() => {
-  //   setCart(
-  //     cartItems.map((item) => ({ ...item, checked: true }))
-  //   );
-  // }, [cartItems]);
 
   const totalQuantity = cartItems.reduce(
     (total, item) => total + item.quantity,
@@ -85,22 +50,9 @@ const CartContent = () => {
   );
   const allChecked = selectedItemQuantity === totalQuantity;
 
-  // const handleItemSelect = (id) => {
-  //   setCart(
-  //     cart.map((item) =>
-  //       item.id === id ? { ...item, checked: !item.checked } : item
-  //     )
-  //   );
-  // };
-
   const handleItemSelect = (id) => {
     dispatch(toggleItemChecked(id));
   };
-
-  // const handleToggleSelectedItems = (event) => {
-  //   const isChecked = event.target.checked;
-  //   setCart(cart.map((item) => ({ ...item, checked: isChecked })));
-  // };
 
   const handleToggleSelectedItems = (event) => {
     dispatch(toggleAllItemsChecked(event.target.checked));
@@ -111,7 +63,6 @@ const CartContent = () => {
       .filter((item) => item.checked)
       .map((item) => item.id); //checkedItemIds now contains an array of IDs of all checked items.
     dispatch(removeItemFromCart(checkedItemIds)); // Remove from Redux
-    // setCart(cart.filter(item => !item.checked));
     console.log("Updated Cart State:", cartItems);
     toast.info("Checked Item are removed.");
   };
@@ -132,13 +83,13 @@ const CartContent = () => {
   return (
     <>
       {cartItems.length === 0 ? (
-        <p className="h-[84.5vh] w-full flex items-center justify-center">
+        <p className="min-h-[84.5vh] w-full flex items-center justify-center">
           Your cart is empty.
         </p>
       ) : (
         <>
-          <div className="py-28 mx-auto flex justify-center gap-3">
-            <div className="cartitems w-[40%]">
+          <div className="py-28 mx-auto flex flex-col md:flex-row justify-center gap-6 lg:gap-3">
+            <div className="cartitems mx-2 w-full lg:w-[40%]">
               {/* <div className="my-5 delivery flex items-center justify-between bg-[#54b7fa] px-3 py-2 border-0 text-[14px]">
           <h4>Check Delivery time and Services</h4>
           <button className="text-[#0680d0] border-[2px] border-[#0680d0] px-2 py-1 bg-[#71c1f6] text-[14px]">
@@ -146,7 +97,7 @@ const CartContent = () => {
           </button>
         </div> */}
 
-              <div className="flex justify-between items-center mt-12">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-12">
                 <div className="flex gap-2 items-center">
                   <input
                     type="checkbox"
@@ -171,15 +122,11 @@ const CartContent = () => {
                   </button>
                 </div>
               </div>
-              {/* {cart.map((item) => {
-                const isChecked =
-                  cart.find((selectedItem) => selectedItem.id === item.id)
-                    ?.checked ?? true; */}
               {cartItems.map((item) => {
                 return (
                   <div
                     key={item.id}
-                    className="flex items-start gap-3 my-2 px-3 py-4 border-[1px] border-[#54b7fa]"
+                    className="flex items-start sm:gap-3 gap-1 my-2 px-3 py-4 border-[1px] border-[#54b7fa]"
                   >
                     <div className="!relative">
                       <DriveImage
@@ -200,7 +147,7 @@ const CartContent = () => {
 
                     <button
                       onClick={() => dispatch(removeItemFromCart(item.id))}
-                      className="ml-auto text-black px-3"
+                      className="ml-auto text-black px-1 sm:px-3"
                     >
                       X
                     </button>
@@ -208,8 +155,8 @@ const CartContent = () => {
                 );
               })}
             </div>
-            <div className="border-l-0 bg-[#54b7fa] w-[1px]"></div>
-            <div className="amount w-[30%]">
+            <div className="hidden lg:block border-l-0 bg-[#54b7fa] w-[1px]"></div>
+            <div className="amount w-full lg:w-[30%]">
               {checkedItems.length !== 0 && (
                 <>
                   <DisplayPriceDetails priceDetails={priceDetails} />

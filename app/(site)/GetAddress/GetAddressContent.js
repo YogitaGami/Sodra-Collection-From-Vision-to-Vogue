@@ -122,10 +122,10 @@ const GetAddressContent = () => {
 
  
   return (
-    <div className="getAddress py-28 mx-auto flex justify-center gap-12">
-      <div className="contactDetails w-[35%] mx-20">
+    <div className="getAddress py-28 mx-auto flex flex-col md:flex-row justify-center gap-12">
+      <div className="contactDetails w-full lg:w-[35%] px-6 lg:mx-20">
         <form
-          className="flex flex-col border-[0.5px] border-[#54b7fa] p-5"
+          className="flex flex-col border-[0.5px] border-[#54b7fa] p-2 lg:p-5"
           method="POST"
           onSubmit={handleSubmit(onSubmit)}
         >
@@ -193,7 +193,7 @@ const GetAddressContent = () => {
               required: false,
             })}
           />
-          <div className="flex gap-3 justify-between">
+          <div className="flex flex-col sm:flex-row gap-0 sm:gap-3 justify-between">
             <div className="flex flex-col w-full">
               <select
                 {...register("city", {
@@ -277,7 +277,7 @@ const GetAddressContent = () => {
           </div>
         </form>
       </div>
-      <div className="priceDetails w-[30%]">
+      <div className="priceDetails w-full lg:w-[30%]">
         <DisplayPriceDetails priceDetails={priceDetails} />
       </div>
     </div>

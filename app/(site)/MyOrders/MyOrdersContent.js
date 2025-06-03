@@ -55,26 +55,6 @@ const MyOrdersContent = () => {
   const confirmReceived = async (orderId) => {
     await axios.post("/api/order/markReceived", { orderId });
   };
-
-  // const markAsReceived = async (orderId) => {
-  //   try {
-  //     await axios.post("/api/order/markReceived", { orderId });
-  //     // Update UI immediately after marking
-  //     setOrders((prev) =>
-  //       prev.map((order) =>
-  //         order.orderId === orderId
-  //           ? {
-  //               ...order,
-  //               status: "received",
-  //               receivedAt: new Date().toISOString(),
-  //             }
-  //           : order
-  //       )
-  //     );
-  //   } catch (error) {
-  //     console.error("Failed to mark as received", error);
-  //   }
-  // };
   const now = new Date();
   const filteredOrders = orders.filter((order) => {
     if (order.status !== "completed") return true;
@@ -87,17 +67,17 @@ const MyOrdersContent = () => {
   return (
     <>
       {filteredOrders.length === 0 ? (
-        <p className="h-[85vh] w-full flex items-center justify-center">
+        <p className="min-h-[85vh] w-full flex items-center justify-center">
           Your order is empty.
         </p>
       ) : (
         <>
           <div className="py-28 flex flex-col justify-center items-center mx-auto">
-            <h2 className="text-xl font-semibold">My Orders</h2>
+            <h2 className="text-xl sm:text-2xl font-bold">My Orders</h2>
             {filteredOrders.map((order, index) => (
               <div
                 key={index}
-                className="py-10 px-20 m-5 border border-[#54b7fa] rounded shadow"
+                className="py-5 sm:py-10 px-8 sm:px-20 m-2 sm:m-5 border border-[#54b7fa] rounded shadow"
               >
                 <p className="p-1">
                   <strong>Order ID:</strong> {order.orderId}

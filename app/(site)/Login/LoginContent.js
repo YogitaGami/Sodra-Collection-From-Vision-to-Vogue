@@ -52,7 +52,7 @@ const LoginContent = () => {
 
   return (
     <>
-      <h1 className="text-center text-2xl font-bold pt-32 pb-20">
+      <h1 className="text-center text-xl sm:text-2xl font-bold pt-32 pb-20">
         Login to Get Started
       </h1>
       <div className="flex justify-center items-center social-login-btn">

@@ -17,6 +17,7 @@ export default function EditArtpiece({ params }) {
     info: "",
     imageId: [],
     material: "",
+    position: "",
   });
   const [loading, setLoading] = useState(false);
 
@@ -117,6 +118,16 @@ export default function EditArtpiece({ params }) {
           value={form.tag}
           onChange={handleChange}
           placeholder="Tag"
+          required
+          className="w-full border rounded px-3 py-2"
+        />
+        <input
+          type="number"
+          name="position"
+          value={form.position}
+          onChange={handleChange}
+          placeholder="Position"
+          min={0}
           required
           className="w-full border rounded px-3 py-2"
         />

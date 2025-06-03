@@ -33,9 +33,9 @@ export default function OrderDetailsContent() {
 
   return (
     <div className="py-28 max-w-5xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Order Details</h1>
+      <h1 className="text-xl sm:text-2xl font-bold mb-4">Order Details</h1>
 
-      <div className="bg-[#71c1f6] flex gap-32 shadow rounded p-4 mb-6">
+      <div className="bg-[#71c1f6] flex flex-col sm:flex-row gap-5 sm:gap-32 shadow rounded p-4 mb-6">
         <div>
           <p>
             <span className="font-semibold">Order ID:</span> {order.orderId}
@@ -74,7 +74,7 @@ export default function OrderDetailsContent() {
         </div>
       </div>
 
-      <h2 className="text-xl font-semibold mb-3">Ordered Items</h2>
+      <h2 className="text-lg sm:text-xl font-semibold mb-3">Ordered Items</h2>
       <div className="flex flex-wrap gap-6 border border-[#54b7fa] p-4 my-2 rounded shadow">
         {Array.isArray(order?.dressDetails) ? (
           order.dressDetails.map((item, index) => (
@@ -87,7 +87,7 @@ export default function OrderDetailsContent() {
                 className="object-cover"
               />
               <h3 className="text-xl font-bold ">{item.name}</h3>
-              <p className="truncate overflow-hidden whitespace-nowrap w-72">
+              <p className="truncate overflow-hidden whitespace-nowrap w-52 sm:w-72">
                 {item.desc}
               </p>
               <p>Price: ₹{item.price}</p>

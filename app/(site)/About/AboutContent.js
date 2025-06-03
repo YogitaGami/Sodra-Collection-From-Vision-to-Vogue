@@ -33,26 +33,36 @@ const AboutContent = () => {
   return (
     <div class="min-h-screen text-gray-800 pt-28">
       <section class="text-center py-6">
-        <h1 class="text-4xl font-bold text-[#0680d0]">Sodra Collection</h1>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0680d0]">
+          Sodra Collection
+        </h1>
         <p class="text-lg text-[#44b1f9] mt-2">From Vision to Vogue</p>
       </section>
 
       <section class="flex justify-center py-8">
         <div class="w-full max-w-4xl px-4">
-          <video controls class="w-full rounded-xl shadow-lg">
-            <source src="/videos/portfolio.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <div class="relative pb-[56.25%] h-0 rounded-xl shadow-lg overflow-hidden">
+            <iframe
+              class="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
       </section>
 
       <section class="max-w-3xl mx-auto px-6 py-12 text-center">
         <img
-          src="/images/ravina.jpg"
+          src="/Ravina.png"
           alt="Ravina Gami"
           class="mx-auto w-40 h-40 rounded-full object-cover border-4 border-[#0680d0] shadow-md mb-4"
         />
-        <h2 class="text-3xl font-bold text-[#0680d0]">Ravina Gami</h2>
+        <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-[#0680d0]">
+          Ravina Gami
+        </h2>
         <p class="text-md text-gray-600 mt-1">
           Fashion Designer, Ujjain (M.P.)
         </p>
@@ -137,10 +147,10 @@ const AboutContent = () => {
           <div class="mb-8 space-y-2">
             <p class="text-gray-800 font-medium flex gap-2 justify-center">
               <Image
-                src="/mail.svg"
+                src="/mail (1).png"
                 alt="Email logo"
-                width={20}
-                height={20}
+                width={18}
+                height={16}
               ></Image>
               <span>Email:</span>
               <a
@@ -211,7 +221,7 @@ const AboutContent = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-[#0680d0] text-white px-6 py-2 rounded-md hover:bg-[#44b1f9] transition"
+                className="bg-[#0680d0] text-white px-3 sm:px-6 py-1 sm:py-2 rounded-md hover:bg-[#44b1f9] transition"
               >
                 Send Message
               </button>

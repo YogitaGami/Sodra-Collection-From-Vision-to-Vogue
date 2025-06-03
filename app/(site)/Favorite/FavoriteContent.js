@@ -61,16 +61,16 @@ const FavoriteContent = () => {
   };
 
   return (
-    <div className="py-20 mx-20 min-h-[84.5vh]">
-      <h2 className="text-2xl font-bold my-8">Favorite List</h2>
+    <div className="py-20 mx-4 sm:mx-10 lg:mx-20 min-h-[84.5vh]">
+      <h2 className="text-xl sm:text-2xl font-bold my-8">Favorite List</h2>
       {favoriteItems.length === 0 ? (
         <p className="text-[#0680d0]">Your favorite list is empty.</p>
       ) : (
-        <div className="flex flex-wrap gap-7">
+        <div className="flex flex-wrap gap-2 sm:gap-7 justify-center sm:justify-normal">
           {favoriteItems.map((item) => (
             <div
               key={item.id}
-              className="p-4 border border-[#54b7fa] rounded-lg shadow-md"
+              className="p-2 sm:p-4 border border-[#54b7fa] rounded-lg shadow-md"
             >
               <div className="!relative">
                 <DriveImage
@@ -96,7 +96,7 @@ const FavoriteContent = () => {
               <div className="flex justify-center">
                 <button
                   onClick={() => handleMoveToCart(item)}
-                  className="px-3 py-1 bg-[#0680d0] text-white rounded-md hover:bg-[#44b1f9]"
+                  className="px-2 sm:px-3 py-1 bg-[#0680d0] text-white rounded-md hover:bg-[#44b1f9]"
                 >
                   Move to Cart
                 </button>
@@ -108,7 +108,7 @@ const FavoriteContent = () => {
       {favoriteItems.length > 0 && (
         <button
           onClick={() => dispatch(clearFavorite())}
-          className="mt-4 px-6 py-2 bg-[#0680d0] text-white rounded-md hover:bg-[#44b1f9]"
+          className="mt-4 px-3 sm:px-6 py-1 sm:py-2 bg-[#0680d0] text-white rounded-md hover:bg-[#44b1f9]"
         >
           Clear Favorite
         </button>

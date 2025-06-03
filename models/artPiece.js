@@ -15,7 +15,8 @@ const artPieceSchema = new Schema({
   },
   madeBy: { type: String },
   code: {type: String },
-  material: { type: String }
+  material: { type: String },
+  position: {type: Number}
 });
 
 export default mongoose.models.ArtPiece || model("ArtPiece", artPieceSchema,"artPiece");

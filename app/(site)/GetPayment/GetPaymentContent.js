@@ -35,26 +35,6 @@ const GetPaymentContent = () => {
   }, [session]);
   console.log(Address);
 
-  // useEffect(() => {
-  //   if (searchParams.get("paymentdone") == "true") {
-  //     toast.info("Payment successful! Your order has been placed.", {
-  //       position: "top-right",
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //       theme: "light",
-  //     });
-
-  //     cartItems.forEach((item) => {
-  //       dispatch(removeItemFromCart(item.id));
-  //       dispatch(removeItem(item.id));
-  //     });
-  //   }
-  // }, [searchParams,cartItems, dispatch]);
-
   if (loading) return <PageLoader />;
 
   const pay = async () => {
@@ -136,7 +116,7 @@ const GetPaymentContent = () => {
           toast.error("Failed to load Razorpay SDK.");
         }}
       />
-      <div className="getPayment mx-auto w-1/2 flex justify-center items-center flex-col">
+      <div className="getPayment mx-auto w-full sm:w-[70%] md:w-1/2 flex justify-center items-center flex-col">
         <DisplayPriceDetails priceDetails={priceDetails} />
         <div className="addressSummary my-4">
           <h3 className="text-lg font-semibold my-2">Deliver To</h3>
@@ -153,7 +133,7 @@ const GetPaymentContent = () => {
           onClick={pay}
           type="button"
           disabled={loading}
-          className={`w-fit px-14 py-2 rounded-md shadow-md transition-all duration-300 text-white ${
+          className={`w-fit px-7 sm:px-14 py-1 sm:py-2 rounded-md shadow-md transition-all duration-300 text-white ${
             loading
               ? "bg-[#90ccf4] cursor-not-allowed"
               : "bg-[#0680d0] hover:bg-[#44b1f9]"

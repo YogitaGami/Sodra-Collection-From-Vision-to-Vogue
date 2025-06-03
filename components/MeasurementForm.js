@@ -18,7 +18,6 @@ const MeasurementForm = ({ dressId }) => {
   const { data: session, update } = useSession();
   const pathname = usePathname(); //Correct way to get the current URL in App Router
   const router = useRouter();
-  // const [prevPath, setPrevPath] = useState("");
 
   const [measurement, setMeasurement] = useState(initialMeasurement);
   const [changes, setChanges] = useState("");
@@ -34,17 +33,6 @@ const MeasurementForm = ({ dressId }) => {
   };
 
   const handleSubmit = async (e) => {
-    //  useEffect(() => {
-    //     if (typeof window === "undefined") return; // Ensure it's running on the client
-
-    //     console.log("Current Path:", pathname);
-    //     if (!session) {
-    //         localStorage.setItem("prevPage", pathname);
-    //         setPrevPath(pathname);
-    //         console.log("Stored Page:", pathname);
-    //         router.push("/Login");
-    //       }
-    //     }, [session, pathname, router]);
 
     setLoading(true);
     e.preventDefault();
@@ -126,7 +114,7 @@ const MeasurementForm = ({ dressId }) => {
       <button
         type="submit"
         disabled={loading}
-      className={`w-fit px-14 py-2 rounded-md shadow-md transition-all duration-300 text-white ${
+      className={`w-fit px-7 sm:px-14 py-1 sm:py-2 rounded-md shadow-md transition-all duration-300 text-white ${
         loading
           ? "bg-[#90ccf4] cursor-not-allowed"
           : "bg-[#0680d0] hover:bg-[#44b1f9]"

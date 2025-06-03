@@ -17,6 +17,7 @@ export default function AddArtpieceModal({ onClose }) {
     style: "",
     material: "",
     madeBy: "",
+    position: "",
     collectionType: "Made To Order",
   });
   const [loading, setLoading] = useState(false);
@@ -54,6 +55,7 @@ export default function AddArtpieceModal({ onClose }) {
         XL: parseNumber(form.price[XL]),
         XXL: parseNumber(form.price[XXL]),
       },
+      position: parseNumber(form.position)
     };
 
     try {
@@ -92,6 +94,17 @@ export default function AddArtpieceModal({ onClose }) {
               required
             />
           ))}
+
+          <input
+            name="position"
+            type="number"
+            min="0"
+            value={form.position}
+            onChange={handleChange}
+            placeholder="Position"
+            required
+            className="w-full border rounded px-3 py-2"
+          />
           
           <div>
             <label className="block font-medium">Size (in S,M...)</label>

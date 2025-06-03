@@ -16,6 +16,7 @@ export default function AddArtpieceModal({ onClose }) {
     code: "",
     material: "",
     madeBy: "",
+    position: "",
     collectionType: "ArtPieces",
   });
   const [loading, setLoading] = useState(false);
@@ -41,6 +42,7 @@ export default function AddArtpieceModal({ onClose }) {
     const formattedForm = {
       ...form,
       price: parseNumber(form.price),
+      position: parseNumber(form.position)
     };
 
     try {
@@ -80,6 +82,16 @@ export default function AddArtpieceModal({ onClose }) {
             />
           ))}
           
+          <input
+            name="position"
+            type="number"
+            min="0"
+            value={form.position}
+            onChange={handleChange}
+            placeholder="Position"
+            required
+            className="w-full border rounded px-3 py-2"
+          />
           <input
             name="price"
             type="number"

@@ -1,11 +1,9 @@
 import React from 'react'
-// import { useSelector} from "react-redux";
-// import { selectPriceDetails } from "@/redux/updateCart/updateCartSlice";
 
 const DisplayPriceDetails = ({ priceDetails }) => {
     if (!priceDetails) return null;
   return (
-    <div className="priceDetails w-[70%]">
+    <div className="priceDetails px-8 w-full lg:w-[70%]">
               <h3 className="text-sm font-semibold my-2">
                 PRICE DETAILS ({priceDetails.selectedItemQuantity} item)
               </h3>

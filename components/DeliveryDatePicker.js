@@ -20,12 +20,12 @@ const DeliveryDatePicker = ({ selectedDays, onDateChange, selectedDeliveryDate }
 
   return (
     <div className="my-7 flex items-center gap-2">
-      <label className="block text-xl font-semibold mb-2">
+      <label className="block text-lg sm:text-xl font-semibold mb-2">
         Select Delivery Date:
       </label>
       <input
         type="date"
-        className="border border-[#71c1f6] px-3 py-2 rounded-md text-lg cursor-pointer"
+        className="border border-[#71c1f6] px-1 sm:px-3 py-1 sm:py-2 rounded-md max-sm:text-base sm:text-lg cursor-pointer"
         min={today.toISOString().split("T")[0]}
         max={oneYearLater.toISOString().split("T")[0]}
         value={selectedDate}

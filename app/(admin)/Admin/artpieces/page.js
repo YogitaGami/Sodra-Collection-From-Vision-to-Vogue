@@ -134,7 +134,7 @@ export default function ArtpiecesAdmin() {
 
               <td className="border px-2 py-1 space-x-2 whitespace-nowrap">
                 <a
-                  href={`/admin/artpieces/${art._id}/edit`}
+                  href={`/Admin/artpieces/${art._id}/edit`}
                   className="text-blue-600 hover:underline"
                 >
                   Edit

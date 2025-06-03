@@ -21,10 +21,10 @@ const ZoomableImage = ({ imageId, alt, className }) => {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="inline-block max-w-full max-h-[90vh] overflow-hidden relative"
+      className="relative w-[47%] sm:w-[48%] md:w-[48%] overflow-hidden rounded-md aspect-[3/4] sm:aspect-[4/5] md:aspect-[339/450]"
     >
       <div
-        className="transition-transform duration-300 ease-in-out hover:scale-150"
+        className="h-full w-full transition-transform duration-300 ease-in-out hover:scale-150"
         style={{
           transformOrigin: `${origin.x}% ${origin.y}%`,
         }}
@@ -32,7 +32,7 @@ const ZoomableImage = ({ imageId, alt, className }) => {
         <DriveImage
           imageId={imageId}
           alt={alt}
-          className={`h-auto w-auto max-w-full max-h-[70vh] object-contain ${className}`}
+          className={`h-full w-full object-contain ${className}`}
         />
       </div>
     </div>

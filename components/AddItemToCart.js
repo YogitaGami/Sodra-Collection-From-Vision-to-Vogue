@@ -82,7 +82,7 @@ const AddItemToCart = ({ item, selectedDays, selectedDeliveryDate }) => {
     <button
       onClick={handleAddCart}
       disabled={loading}
-      className={`w-fit px-14 py-2 rounded-md shadow-md transition-all duration-300 text-white ${
+      className={`w-fit px-10 sm:px-14 py-1 sm:py-2 rounded-md shadow-md transition-all duration-300 text-white ${
         loading
           ? "bg-[#90ccf4] cursor-not-allowed"
           : "bg-[#0680d0] hover:bg-[#44b1f9]"
