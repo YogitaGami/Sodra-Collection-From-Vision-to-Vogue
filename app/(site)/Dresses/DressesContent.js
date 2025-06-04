@@ -329,7 +329,7 @@ const DressesContent = () => {
         {/* Category Filter */}
         <div>
           <h3 className="font-medium">Categories</h3>
-          <div className="mt-2 space-y-1 max-h-32 overflow-y-auto pr-1">
+          <div className="mt-2 space-y-1 max-h-32 overflow-y-auto pr-1 custom-scroll">
             {uniqueCategories.map((category) => (
               <label key={category} className="flex items-center">
                 <input
@@ -348,7 +348,7 @@ const DressesContent = () => {
         {/* Type Filter */}
         <div>
           <h3 className="font-medium">Types</h3>
-          <div className="mt-2 space-y-1 max-h-32 overflow-y-auto pr-1">
+          <div className="mt-2 space-y-1 max-h-32 overflow-y-auto pr-1 custom-scroll">
             {uniqueTypes.map((type) => (
               <label key={type} className="flex items-center">
                 <input
@@ -381,7 +381,7 @@ const DressesContent = () => {
         {/* Color Filter */}
         <div>
           <h3 className="font-medium">Colors</h3>
-          <div className="mt-2 space-y-1 max-h-32 overflow-y-auto pr-1">
+          <div className="mt-2 space-y-1 max-h-32 overflow-y-auto pr-1 custom-scroll">
             {uniqueColors.map((color) => (
               <label key={color} className="flex items-center gap-2">
                 <input
@@ -404,7 +404,7 @@ const DressesContent = () => {
         {/* Size Filter */}
         <div>
           <h3 className="font-medium">Sizes</h3>
-          <div className="mt-2 space-y-1 max-h-32 overflow-y-auto pr-1">
+          <div className="mt-2 space-y-1 max-h-32 overflow-y-auto pr-1 custom-scroll">
             {uniqueSizes.map((size) => (
               <label key={size} className="flex items-center">
                 <input

@@ -20,7 +20,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between lg:justify-around px-6 md:px-12 h-20">
 
         <Link href="/">
-          <Image src="/logo.jpg" alt="logo" width={60} height={60} />
+          <Image src="/Logo.jpg" alt="logo" width={60} height={60} />
         </Link>
 
         {/* Hamburger Button (Mobile) */}

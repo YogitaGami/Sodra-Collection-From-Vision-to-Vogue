@@ -1,5 +1,9 @@
 export async function generateMetadata({ params }) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/dresses/${params.id}`, {
+  const baseUrl =
+    process.env.NODE_ENV === "production"
+      ? "https://sodra-collection-from-vision-to-vog.vercel.app"
+      : "http://localhost:3000";
+  const res = await fetch(`${baseUrl}/api/dresses/${params.id}`, {
     cache: "no-store"});
   const dress = await res.json();
 
