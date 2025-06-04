@@ -65,10 +65,15 @@ export const POST = async (req) => {
       }
     }
 
+    const baseUrl =
+      process.env.NODE_ENV === "production"
+        ? "https://sodra-collection-from-vision-to-vog.vercel.app"
+        : "http://localhost:3000";
+
     return new Response(null, {
       status: 302,
       headers: {
-        Location: `${process.env.NEXT_PUBLIC_URL}/MyOrders?paymentdone=true`,
+        Location: `${baseUrl}/MyOrders?paymentdone=true`,
       },
     });
   } else {

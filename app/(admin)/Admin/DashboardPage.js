@@ -22,16 +22,22 @@ export default function DashboardPage() {
 
   useEffect(() => {
     async function fetchStats() {
-      const res = await fetch("/api/dashboard-stats");
-      const data = await res.json();
-      setStats(data);
+      try {
+        const res = await fetch("/api/dashboard-stats");
+        const data = await res.json();
+        if (res.ok) {
+          setStats(data);
+        } else {
+          console.error("Failed to load stats:", data);
+        }
+      } catch (err) {
+        console.error("Error fetching stats:", err);
+      }
     }
-    console.log("stats",stats)
     fetchStats();
   }, []);
 
-  // If session is loading
-  if (status === "loading") return <PageLoader />;
+  if (!stats) return <PageLoader />;
 
   // If user is not admin
   if (session?.user?.email !== process.env.NEXT_PUBLIC_ADMIN_EMAIL) {
@@ -59,7 +65,10 @@ export default function DashboardPage() {
         <DashboardCard title="Accessories" value={stats.accessories} />
         <DashboardCard title="Art Pieces" value={stats.artPieces} />
         <DashboardCard title="MadeToOrders" value={stats.madeToOrders} />
-        <DashboardCard title="MadeToOrderSubmissions" value={stats.madeToOrderSubmission} />
+        <DashboardCard
+          title="MadeToOrderSubmissions"
+          value={stats.madeToOrderSubmission}
+        />
         <DashboardCard title="Orders" value={stats.orders} />
         <DashboardCard title="Contact-Messages" value={stats.contactMessages} />
       </div>
