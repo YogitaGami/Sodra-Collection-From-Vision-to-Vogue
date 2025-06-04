@@ -15,7 +15,7 @@ export async function generateMetadata({ params }) {
 
 import DressContent from "./DressContent"
 
-const Derss = () => {
+const Dress = () => {
   return (
     <div>
       <DressContent/>
@@ -23,4 +23,4 @@ const Derss = () => {
   )
 }
 
-export default Derss
+export default Dress

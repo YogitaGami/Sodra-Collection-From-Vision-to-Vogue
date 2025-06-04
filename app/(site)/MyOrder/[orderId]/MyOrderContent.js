@@ -6,6 +6,7 @@ import axios from "axios";
 import moment from "moment";
 import PageLoader from "@/components/PageLoader";
 import DriveImage from "@/components/DriveImage";
+import { toast } from "react-toastify";
 
 export default function OrderDetailsContent() {
   const { orderId } = useParams();
@@ -30,6 +31,8 @@ export default function OrderDetailsContent() {
   }, [orderId]);
 
   if (loading) return <PageLoader />;
+  if (!order) return <PageLoader />;
+  
 
   return (
     <div className="py-28 max-w-5xl mx-auto">

@@ -68,7 +68,7 @@ const SodraCollection = () => {
               spaceBetween={0}
               loop={true}
               autoplay={{
-                delay: 25000,
+                delay: 3000,
                 disableOnInteraction: false,
               }}
               pagination={{ clickable: true }}
