@@ -47,7 +47,7 @@ const DressContent = () => {
   };
 
   return (
-    <div className="w-full flex flex-col md:flex-row gap-6 pt-16 sm:pt-20 px-4 md:px-14 pb-5">
+    <div className="w-full flex flex-col md:flex-row gap-6 pt-24 sm:pt-20 px-4 md:px-14 pb-5">
       {/* Images */}
       <div className="w-full md:w-[54%] overflow-auto">
         <div className="flex flex-wrap sm:gap-4 gap-2 items-start md:justify-start">
@@ -64,7 +64,7 @@ const DressContent = () => {
       {/* Details */}
       <div className="flex flex-col w-full md:w-[45%]">
         <div className="flex gap-3 flex-wrap items-center">
-          <h2 className="font-bold text-2xl sm:text-3xl py-3">{dress.name}</h2>
+          <h2 className="font-bold text-xl sm:text-3xl py-3">{dress.name}</h2>
           <ToggleItemToFavorite
             item={dress}
             selectedDays={selectedDays}
@@ -99,7 +99,7 @@ const DressContent = () => {
           <span>{dress.size}</span>
         </div>
 
-        <h3 className="font-semibold text-lg mt-6">RENT PERIOD</h3>
+        <h3 className="font-semibold text-base sm:text-lg mt-6">RENT PERIOD</h3>
         <div className="flex flex-wrap gap-6 my-3">
           {dress?.price &&
             Object.entries(dress.price).map(([days, cost]) => (

@@ -23,6 +23,7 @@ const DeliveryDatePicker = ({ selectedDays, onDateChange, selectedDeliveryDate }
       <label className="block text-lg sm:text-xl font-semibold mb-2">
         Select Delivery Date:
       </label>
+    <div className="flex flex-col sm:flex-row">
       <input
         type="date"
         className="border border-[#71c1f6] px-1 sm:px-3 py-1 sm:py-2 rounded-md max-sm:text-base sm:text-lg cursor-pointer"
@@ -35,17 +36,18 @@ const DeliveryDatePicker = ({ selectedDays, onDateChange, selectedDeliveryDate }
 
       {/* Display selected delivery & return dates */}
       {selectedDeliveryDate && (
-        <div className="text-base">
-          <p>
+        <div className="text-xs sm:text-base">
+          <p className="flex flex-row sm:flex-col">
             Delivery Date:{" "}
             <strong>{selectedDeliveryDate.toLocaleDateString("en-GB")}</strong>
           </p>
-          <p>
+          <p className="flex flex-row sm:flex-col">
             Return Date:{" "}
             <strong>{returnDate.toLocaleDateString("en-GB")}</strong>
           </p>
         </div>
       )}
+      </div>
     </div>
   );
 };

@@ -44,7 +44,7 @@ const AccessoryContent = () => {
   };
 
   return (
-    <div className="w-full flex flex-col md:flex-row gap-10 pt-28 px-4 sm:px-6 md:px-14 pb-5">
+    <div className="w-full flex flex-col md:flex-row gap-10 pt-24 sm:pt-20 px-4 sm:px-6 md:px-14 pb-5">
       {/* Image Section */}
       <div className="w-full md:w-[54%] overflow-auto">
         <div className="flex flex-wrap sm:gap-4 gap-2 items-start justify-start">
@@ -61,7 +61,7 @@ const AccessoryContent = () => {
       {/* Details Section */}
       <div className="flex flex-col w-full md:w-[45%]">
         <div className="flex gap-3 flex-wrap items-center">
-          <h2 className="font-bold text-2xl sm:text-3xl py-3">{accessory.name}</h2>
+          <h2 className="font-bold text-xl sm:text-3xl py-3">{accessory.name}</h2>
           <ToggleItemToFavorite
             item={accessory}
             selectedDays={selectedDays}

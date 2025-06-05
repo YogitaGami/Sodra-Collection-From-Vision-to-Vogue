@@ -43,7 +43,7 @@ const MadeToOrderContent = () => {
   return (
     <>
       <div className="px-4 py-6">
-        <div className="flex flex-col lg:flex-row gap-10 pt-28 px-4 sm:px-6 lg:px-14 pb-5">
+        <div className="flex flex-col lg:flex-row gap-10 pt-24 sm:pt-20 px-4 sm:px-6 lg:px-14 pb-5">
           {/* Left Section: Image */}
           <div className="w-full lg:w-1/2 overflow-auto">
             <div className="flex flex-wrap gap-4 items-center justify-center">
@@ -60,7 +60,7 @@ const MadeToOrderContent = () => {
           {/* Right Section: Details */}
           <div className="flex flex-col w-full lg:w-1/2">
             <div className="flex gap-3">
-              <h2 className="font-bold text-2xl sm:text-3xl py-3">
+              <h2 className="font-bold text-xl sm:text-3xl py-3">
                 {madeToOrder.name}
               </h2>
             </div>

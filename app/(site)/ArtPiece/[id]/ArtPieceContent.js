@@ -35,7 +35,7 @@ const ArtPieceContent = () => {
   if (loading) return <PageLoader />;
 
   return (
-    <div className="w-full flex flex-col md:flex-row gap-10 pt-24 px-4 md:px-14 pb-10">
+    <div className="w-full flex flex-col md:flex-row gap-10 pt-24 sm:pt-20 px-4 md:px-14 pb-10">
       {/* Left Image Section */}
       <div className="w-full md:w-[54%] overflow-auto">
         <div className="flex flex-wrap sm:gap-4 gap-2 items-start justify-start">
@@ -53,7 +53,7 @@ const ArtPieceContent = () => {
       {/* Right Details Section */}
       <div className="w-full md:w-[45%] flex flex-col">
         <div className="flex gap-3 flex-wrap items-center">
-          <h2 className="font-bold text-2xl md:text-3xl py-3">{artPiece.name}</h2>
+          <h2 className="font-bold text-xl md:text-3xl py-3">{artPiece.name}</h2>
           <ToggleItemToFavorite item={artPiece} />
         </div>
 
