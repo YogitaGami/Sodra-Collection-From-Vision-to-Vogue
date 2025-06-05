@@ -113,7 +113,7 @@ const LoginContent = () => {
             <span className="text-black">Continue with Google</span>
           </button>
 
-          <button
+          {/* <button
             onClick={() => {
               signIn("github");
             }}
@@ -159,7 +159,7 @@ const LoginContent = () => {
             </svg>
 
             <span className="text-black">Continue with Github</span>
-          </button>
+          </button> */}
 
           <div className="text-center text-[#0680d0] mb-4">or</div>
 

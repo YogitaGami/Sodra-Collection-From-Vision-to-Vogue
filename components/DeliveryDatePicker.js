@@ -37,11 +37,11 @@ const DeliveryDatePicker = ({ selectedDays, onDateChange, selectedDeliveryDate }
       {/* Display selected delivery & return dates */}
       {selectedDeliveryDate && (
         <div className="text-xs sm:text-base">
-          <p className="flex flex-row sm:flex-col">
+          <p>
             Delivery Date:{" "}
             <strong>{selectedDeliveryDate.toLocaleDateString("en-GB")}</strong>
           </p>
-          <p className="flex flex-row sm:flex-col">
+          <p>
             Return Date:{" "}
             <strong>{returnDate.toLocaleDateString("en-GB")}</strong>
           </p>
